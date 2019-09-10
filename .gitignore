@@ -1,0 +1,15 @@
+complex-worker/target/
+complex-worker/.settings/
+complex-worker/.idea/
+complex-service/target/
+complex-service/.settings/
+complex-service/.idea/
+complex-worker/.project
+complex-worker/.factorypath
+complex-worker/.classpath
+*.iml
+client/.idea/
+complex-service/.factorypath
+complex-service/.project
+complex-service/.classpath
+*.jar
