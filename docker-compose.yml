@@ -5,6 +5,13 @@ services:
     image: 'postgres:alpine'
   redis-server:
     image: 'redis:alpine'
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
   service:
     build:
       dockerfile: Dockerfile.dev
@@ -28,3 +35,6 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./complex-worker/src/main/resources
+    environment:
+      - redis.host=redis-server
+      - redis.port=6379
