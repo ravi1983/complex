@@ -11,8 +11,8 @@ script:
 after_success:
   - docker build -t ravidoc/multi-client ./client
   - docker build -t ravidoc/multi-nginx ./nginx
-  - docker build -t ravidoc/multi-service ./complex-service
-  - docker build -t ravidoc/multi-worker ./complex-worker
+  - docker build -t ravidoc/multi-service ./complex-service/src/main/resources
+  - docker build -t ravidoc/multi-worker ./complex-worker/src/main/resources
   # Login CLI and publish images to docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push ravidoc/multi-client
