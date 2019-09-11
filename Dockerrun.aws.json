@@ -1,0 +1,33 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "ravidoc/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "service",
+      "image": "ravidoc/multi-service",
+      "hostname": "service",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "ravidoc/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "ravidoc/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {"hostPort":  80, "containerPort":  80}
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
